@@ -89,11 +89,12 @@ section{padding:5rem 3rem}
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
 .contact-title{font-family:'Syne',sans-serif;font-size:2.2rem;font-weight:800;letter-spacing:-1px;line-height:1.2}
 .contact-title span{color:var(--yellow)}
-.contact-sub{color:rgba(255,255,255,0.6);margin-top:1rem;line-height:1.7;font-size:0.95rem;font-weight:300}
+.contact-sub{color:rgba(255,255,255,0.6);margin-top:1rem;line-height:1.7;font-size:0.95rem;font-weight:300;margin-bottom:1.5rem}
 .contact-links{display:flex;flex-direction:column;gap:1.2rem;margin-top:2rem}
 .c-link{display:flex;align-items:center;gap:12px;color:rgba(255,255,255,0.8);text-decoration:none;font-size:0.9rem;transition:color 0.2s}
 .c-link:hover{color:#fff}
-.c-icon{width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;font-size:1rem}
+.c-link-label{font-size:0.75rem;text-transform:uppercase;color:rgba(255,255,255,0.5);letter-spacing:0.05em;margin-bottom:4px;display:block}
+.c-icon{width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
 .form-group{margin-bottom:1.5rem}
 .form-group input,.form-group textarea{width:100%;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:12px;padding:0.9rem 1.2rem;color:#fff;font-family:'DM Sans',sans-serif;font-size:0.95rem;transition:border 0.2s}
 .form-group input::placeholder,.form-group textarea::placeholder{color:rgba(255,255,255,0.4)}
@@ -330,9 +331,21 @@ footer span{color:var(--coral)}
         <div class="contact-title">Let's create something <span>amazing</span>.</div>
         <p class="contact-sub">Looking for design, video editing, or presentation work? I'd love to collaborate. Reach out and let's bring your ideas to life.</p>
         <div class="contact-links">
-          <a class="c-link" href="mailto:your.email@example.com"><div class="c-icon">✉️</div>your.email@example.com</a>
-          <a class="c-link" href="https://linkedin.com/in/allanjos" target="_blank"><div class="c-icon">🔗</div>linkedin.com/in/allanjos</a>
-          <a class="c-link" href="https://instagram.com/yourhandle" target="_blank"><div class="c-icon">📸</div>@yourinstagram</a>
+          <span class="c-link-label">📞 Phone</span>
+          <a class="c-link" href="tel:+918072793139"><div class="c-icon">☎️</div>+91 8072793139</a>
+          
+          <span class="c-link-label" style="margin-top:1rem">✉️ Email</span>
+          <a class="c-link" href="mailto:mrallanjoseph@outlook.com"><div class="c-icon">📧</div>mrallanjoseph@outlook.com</a>
+          <a class="c-link" href="mailto:mrallanjoseph@gmail.com"><div class="c-icon">📧</div>mrallanjoseph@gmail.com</a>
+          
+          <span class="c-link-label" style="margin-top:1rem">📍 Location</span>
+          <div class="c-link" style="cursor:default">
+            <div class="c-icon">📌</div>
+            <div>
+              <div>S4, Raja Apartments</div>
+              <div style="font-size:0.85rem;color:rgba(255,255,255,0.6)">Aranganathan Street, Chidambaram</div>
+            </div>
+          </div>
         </div>
       </div>
       <div>
