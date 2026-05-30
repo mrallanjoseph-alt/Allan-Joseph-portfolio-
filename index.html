@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Allan Joseph — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&family=Syne:wght@400;700;800&family=DM+Sans:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --coral:#FF6B4A;--coral-light:#FFE8E3;--yellow:#FFD84D;--purple:#7C5CBF;
+  --mint:#3ECFA0;--dark:#1A1225;--cream:#FFF9F0;--text:#2D1F4E;
+}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden}
+
+nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 3rem;position:sticky;top:0;background:rgba(255,249,240,0.92);backdrop-filter:blur(12px);z-index:100;border-bottom:1px solid rgba(124,92,191,0.1)}
+.logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.5rem;color:var(--purple);letter-spacing:-1px}
+.logo span{color:var(--coral)}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{font-size:0.9rem;text-decoration:none;color:var(--text);font-weight:400;letter-spacing:0.02em;transition:color 0.2s}
+.nav-links a:hover{color:var(--coral)}
+
+.hero{min-height:91vh;display:flex;align-items:center;padding:3rem;position:relative;overflow:hidden}
+.hero-content{max-width:680px;position:relative;z-index:2}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;background:var(--yellow);color:var(--text);padding:6px 16px;border-radius:99px;font-size:0.8rem;font-weight:500;margin-bottom:1.5rem;animation:fadeUp 0.6s ease both}
+.hero-tag::before{content:'✦';font-size:0.7rem}
+h1{font-family:'Syne',sans-serif;font-size:clamp(3rem,6vw,5rem);font-weight:800;line-height:1.05;letter-spacing:-2px;margin-bottom:1.5rem;animation:fadeUp 0.6s 0.1s ease both}
+h1 .line2{color:var(--coral);display:block;font-style:italic}
+h1 .line3{color:var(--purple);display:block}
+.hero-desc{font-size:1.1rem;line-height:1.7;color:#6B5B8A;max-width:480px;margin-bottom:2.5rem;animation:fadeUp 0.6s 0.2s ease both;font-weight:300}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;animation:fadeUp 0.6s 0.3s ease both}
+.btn-primary{background:var(--coral);color:#fff;padding:0.9rem 2rem;border-radius:99px;border:none;font-family:'DM Sans',sans-serif;font-size:1rem;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(255,107,74,0.35)}
+.btn-secondary{background:transparent;color:var(--text);padding:0.9rem 2rem;border-radius:99px;border:2px solid rgba(45,31,78,0.2);font-family:'DM Sans',sans-serif;font-size:1rem;cursor:pointer;transition:all 0.2s}
+.btn-secondary:hover{border-color:var(--purple);color:var(--purple)}
+
+.blob{position:absolute;border-radius:50%;filter:blur(60px);opacity:0.18}
+.blob1{width:400px;height:400px;background:var(--purple);top:-80px;right:-60px}
+.blob2{width:300px;height:300px;background:var(--coral);bottom:-40px;right:200px}
+.blob3{width:200px;height:200px;background:var(--mint);top:40%;right:5%}
+
+.floating-badge{position:absolute;background:#fff;border-radius:16px;padding:12px 18px;box-shadow:0 4px 20px rgba(0,0,0,0.08);font-size:0.82rem;font-weight:500;animation:float 3s ease-in-out infinite;z-index:2}
+.fb1{right:8%;top:22%;animation-delay:0s}
+.fb2{right:4%;top:48%;animation-delay:1.5s}
+.fb3{right:16%;bottom:18%;animation-delay:0.8s}
+.fb-dot{width:8px;height:8px;border-radius:50%;display:inline-block;margin-right:8px}
+
+section{padding:5rem 3rem}
+.section-label{font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--coral);font-weight:500;margin-bottom:0.75rem;display:flex;align-items:center;gap:8px}
+.section-label::before{content:'';display:block;width:24px;height:2px;background:var(--coral)}
+.section-title{font-family:'Syne',sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:800;letter-spacing:-1.5px;line-height:1.1;margin-bottom:3rem}
+.section-title em{font-style:italic;color:var(--purple)}
+
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.about-visual{background:var(--dark);border-radius:24px;aspect-ratio:1;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.av-inner{width:140px;height:140px;border-radius:50%;background:linear-gradient(135deg,var(--coral),var(--purple));display:flex;align-items:center;justify-content:center;font-size:3.5rem}
+.av-ring{position:absolute;width:200px;height:200px;border-radius:50%;border:2px dashed rgba(255,255,255,0.15);animation:spin 15s linear infinite}
+.av-ring2{position:absolute;width:260px;height:260px;border-radius:50%;border:2px dashed rgba(255,255,255,0.08);animation:spin 25s linear infinite reverse}
+.stat-row{display:flex;gap:2rem;margin-top:2.5rem}
+.stat{text-align:center}
+.stat-num{font-family:'Syne',sans-serif;font-size:2.2rem;font-weight:800;color:var(--purple);line-height:1}
+.stat-lbl{font-size:0.78rem;color:#8B7AAF;margin-top:4px;text-transform:uppercase;letter-spacing:0.08em}
+.about-text p{font-size:1.05rem;line-height:1.8;color:#5A4A7A;margin-bottom:1rem;font-weight:300}
+.tag-cloud{display:flex;flex-wrap:wrap;gap:8px;margin-top:1.5rem}
+.tag{padding:6px 14px;border-radius:99px;font-size:0.82rem;font-weight:500}
+.tag.coral{background:var(--coral-light);color:var(--coral)}
+.tag.purple{background:#EDE8F8;color:var(--purple)}
+.tag.yellow{background:#FFF5CC;color:#8B7000}
+.tag.mint{background:#E0F9F2;color:#1A7A5E}
+
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1.25rem}
+.skill-card{background:#fff;border-radius:20px;padding:1.75rem 1.5rem;border:1px solid rgba(124,92,191,0.08);transition:transform 0.25s,box-shadow 0.25s;cursor:default;position:relative;overflow:hidden}
+.skill-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,transparent,rgba(124,92,191,0.04));opacity:0;transition:opacity 0.25s}
+.skill-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(124,92,191,0.12)}
+.skill-card:hover::before{opacity:1}
+.skill-icon{font-size:2rem;margin-bottom:1rem;display:block}
+.skill-name{font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;margin-bottom:0.4rem}
+.skill-level{height:4px;background:rgba(124,92,191,0.1);border-radius:99px;overflow:hidden;margin-top:0.75rem}
+.skill-fill{height:100%;border-radius:99px;background:linear-gradient(90deg,var(--purple),var(--coral));width:0%;transition:width 1.2s ease}
+.skill-pct{font-size:0.75rem;color:#8B7AAF;margin-top:0.4rem}
+
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
+.project-card{background:#fff;border-radius:24px;overflow:hidden;border:1px solid rgba(124,92,191,0.08);transition:transform 0.25s,box-shadow 0.25s;cursor:pointer}
+.project-card:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(0,0,0,0.1)}
+.proj-thumb{height:180px;display:flex;align-items:center;justify-content:center;font-size:3rem;position:relative;overflow:hidden}
+.proj-body{padding:1.5rem}
+.proj-type{font-size:0.72rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--coral);font-weight:500;margin-bottom:0.5rem}
+.proj-title{font-family:'Syne',sans-serif;font-weight:700;font-size:1.15rem;margin-bottom:0.6rem;line-height:1.3}
+.proj-desc{font-size:0.875rem;color:#7A6A9A;line-height:1.6;font-weight:300}
+.proj-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:1rem}
+.proj-tag{background:var(--cream);color:#7A6A9A;font-size:0.72rem;padding:4px 10px;border-radius:99px;border:1px solid rgba(124,92,191,0.1)}
+.proj-arrow{display:inline-flex;align-items:center;gap:6px;margin-top:1rem;font-size:0.85rem;color:var(--purple);font-weight:500}
+
+.contact-wrap{background:var(--dark);border-radius:32px;padding:4rem;color:#fff;position:relative;overflow:hidden}
+.contact-wrap::before{content:'✦';position:absolute;font-size:12rem;color:rgba(255,255,255,0.02);top:-2rem;right:-2rem;font-family:'Syne',sans-serif}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.contact-title{font-family:'Syne',sans-serif;font-size:2.5rem;font-weight:800;letter-spacing:-1.5px;line-height:1.1}
+.contact-title span{color:var(--yellow)}
+.contact-sub{color:rgba(255,255,255,0.55);margin-top:1rem;line-height:1.7;font-size:0.95rem;font-weight:300}
+.contact-links{display:flex;flex-direction:column;gap:1rem;margin-top:2rem}
+.c-link{display:flex;align-items:center;gap:12px;color:rgba(255,255,255,0.7);text-decoration:none;font-size:0.9rem;transition:color 0.2s}
+.c-link:hover{color:#fff}
+.c-icon{width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,0.07);display:flex;align-items:center;justify-content:center;font-size:1rem}
+.form-group{margin-bottom:1.25rem}
+.form-group input,.form-group textarea{width:100%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:0.85rem 1.1rem;color:#fff;font-family:'DM Sans',sans-serif;font-size:0.9rem;outline:none;transition:border-color 0.2s}
+.form-group input::placeholder,.form-group textarea::placeholder{color:rgba(255,255,255,0.3)}
+.form-group input:focus,.form-group textarea:focus{border-color:rgba(255,216,77,0.5)}
+.form-group textarea{height:110px;resize:none}
+.send-btn{width:100%;background:var(--yellow);color:var(--dark);border:none;border-radius:12px;padding:0.9rem;font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;margin-top:0.25rem}
+.send-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(255,216,77,0.3)}
+
+footer{text-align:center;padding:2rem 3rem;border-top:1px solid rgba(124,92,191,0.08);font-size:0.82rem;color:#8B7AAF}
+footer span{color:var(--coral)}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+@media(max-width:700px){
+  nav{padding:1rem 1.5rem}
+  .hero{padding:2rem 1.5rem}
+  .hero-content{max-width:100%}
+  .floating-badge{display:none}
+  .about-grid,.contact-grid{grid-template-columns:1fr}
+  section{padding:3rem 1.5rem}
+  .about-visual{max-width:220px;margin:0 auto}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">allan<span>.</span>joseph</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="blob blob1"></div>
+  <div class="blob blob2"></div>
+  <div class="blob blob3"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Full Stack Developer & Creative Technologist</div>
+    <h1>
+      Building
+      <span class="line2">digital experiences</span>
+      <span class="line3">that matter.</span>
+    </h1>
+    <p class="hero-desc">I create elegant, functional applications and digital solutions that solve real problems — line of code by line of code, feature by feature.</p>
+    <div class="hero-btns">
+      <button class="btn-primary" onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})">View My Work</button>
+      <button class="btn-secondary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get In Touch</button>
+    </div>
+  </div>
+  <div class="floating-badge fb1" style="color:var(--purple)"><span class="fb-dot" style="background:var(--purple)"></span>React & Node.js</div>
+  <div class="floating-badge fb2" style="color:var(--coral)"><span class="fb-dot" style="background:var(--coral)"></span>Full Stack</div>
+  <div class="floating-badge fb3" style="color:#1A7A5E"><span class="fb-dot" style="background:var(--mint)"></span>Web Design</div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-visual">
+      <div class="av-ring"></div>
+      <div class="av-ring2"></div>
+      <div class="av-inner">💻</div>
+    </div>
+    <div class="about-text">
+      <div class="section-label">About Me</div>
+      <div class="section-title">A developer who <em>creates</em> &amp; innovates.</div>
+      <p>Hi! I'm Allan Joseph — a full stack developer passionate about crafting digital solutions that are both beautiful and functional. I believe great code isn't just efficient; it's the foundation that powers seamless user experiences.</p>
+      <p>When I'm not coding, you'll find me exploring new technologies, contributing to open source projects, or experimenting with creative coding concepts.</p>
+      <div class="tag-cloud">
+        <span class="tag coral">JavaScript</span>
+        <span class="tag purple">React</span>
+        <span class="tag yellow">Node.js</span>
+        <span class="tag mint">Python</span>
+        <span class="tag coral">MongoDB</span>
+        <span class="tag purple">Git</span>
+      </div>
+      <div class="stat-row">
+        <div class="stat"><div class="stat-num">25+</div><div class="stat-lbl">Projects</div></div>
+        <div class="stat"><div class="stat-num">12</div><div class="stat-lbl">Clients</div></div>
+        <div class="stat"><div class="stat-num">3yr</div><div class="stat-lbl">Experience</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" style="background:#F4F0FF;border-radius:32px;margin:0 1.5rem">
+  <div class="section-label">What I Do</div>
+  <div class="section-title">My <em>technical</em> toolkit</div>
+  <div class="skills-grid">
+    <div class="skill-card"><span class="skill-icon">🎨</span><div class="skill-name">Frontend Dev</div><div style="font-size:0.82rem;color:#8B7AAF;font-weight:300">React, Vue &amp; responsive design</div><div class="skill-level"><div class="skill-fill" data-width="92%"></div></div><div class="skill-pct">92%</div></div>
+    <div class="skill-card"><span class="skill-icon">⚙️</span><div class="skill-name">Backend Dev</div><div style="font-size:0.82rem;color:#8B7AAF;font-weight:300">Node.js, Express &amp; databases</div><div class="skill-level"><div class="skill-fill" data-width="88%"></div></div><div class="skill-pct">88%</div></div>
+    <div class="skill-card"><span class="skill-icon">🗄️</span><div class="skill-name">Databases</div><div style="font-size:0.82rem;color:#8B7AAF;font-weight:300">MongoDB, PostgreSQL &amp; SQL</div><div class="skill-level"><div class="skill-fill" data-width="85%"></div></div><div class="skill-pct">85%</div></div>
+    <div class="skill-card"><span class="skill-icon">📱</span><div class="skill-name">Responsive Design</div><div style="font-size:0.82rem;color:#8B7AAF;font-weight:300">Mobile-first &amp; UX focused</div><div class="skill-level"><div class="skill-fill" data-width="90%"></div></div><div class="skill-pct">90%</div></div>
+    <div class="skill-card"><span class="skill-icon">🔧</span><div class="skill-name">DevOps &amp; Deployment</div><div style="font-size:0.82rem;color:#8B7AAF;font-weight:300">Docker, GitHub Actions, AWS</div><div class="skill-level"><div class="skill-fill" data-width="75%"></div></div><div class="skill-pct">75%</div></div>
+    <div class="skill-card"><span class="skill-icon">🧪</span><div class="skill-name">Testing &amp; QA</div><div style="font-size:0.82rem;color:#8B7AAF;font-weight:300">Jest, Cypress &amp; unit testing</div><div class="skill-level"><div class="skill-fill" data-width="80%"></div></div><div class="skill-pct">80%</div></div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-label">Portfolio</div>
+  <div class="section-title">Hand-picked <em>projects</em></div>
+  <div class="projects-grid">
+    <div class="project-card">
+      <div class="proj-thumb" style="background:linear-gradient(135deg,#FFE8E3,#FFD0C2)">🚀</div>
+      <div class="proj-body">
+        <div class="proj-type">Full Stack / Web App</div>
+        <div class="proj-title">TaskFlow – Project Management App</div>
+        <div class="proj-desc">A collaborative task management platform with real-time updates, built with React and Node.js for teams of any size.</div>
+        <div class="proj-tags"><span class="proj-tag">React</span><span class="proj-tag">Node.js</span><span class="proj-tag">MongoDB</span></div>
+        <div class="proj-arrow">View Case Study →</div>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="proj-thumb" style="background:linear-gradient(135deg,#EDE8F8,#D8CFF5)">💬</div>
+      <div class="proj-body">
+        <div class="proj-type">Frontend / Real-time Chat</div>
+        <div class="proj-title">ChatHub – Messaging Platform</div>
+        <div class="proj-desc">A real-time chat application with user authentication, group conversations, and file sharing capabilities.</div>
+        <div class="proj-tags"><span class="proj-tag">React</span><span class="proj-tag">Socket.io</span><span class="proj-tag">Firebase</span></div>
+        <div class="proj-arrow">View Project →</div>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="proj-thumb" style="background:linear-gradient(135deg,#E0F9F2,#B2EFD8)">📊</div>
+      <div class="proj-body">
+        <div class="proj-type">Data Visualization / Dashboard</div>
+        <div class="proj-title">DataViz – Analytics Platform</div>
+        <div class="proj-desc">A comprehensive analytics dashboard with interactive charts, real-time data processing, and custom report generation.</div>
+        <div class="proj-tags"><span class="proj-tag">React</span><span class="proj-tag">D3.js</span><span class="proj-tag">Python</span></div>
+        <div class="proj-arrow">View Case Study →</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" style="padding-top:0">
+  <div class="contact-wrap">
+    <div class="contact-grid">
+      <div>
+        <div class="contact-title">Let's build something <span>amazing</span> together.</div>
+        <p class="contact-sub">Have a project in mind or just want to chat? I'd love to hear about it. Drop me a message and let's start the conversation.</p>
+        <div class="contact-links">
+          <a class="c-link" href="mailto:contact@allanjos.com"><div class="c-icon">✉️</div>contact@allanjos.com</a>
+          <a class="c-link" href="https://linkedin.com/in/allanjos" target="_blank"><div class="c-icon">🔗</div>linkedin.com/in/allanjos</a>
+          <a class="c-link" href="https://github.com/mrallanjoseph-alt" target="_blank"><div class="c-icon">💻</div>github.com/mrallanjoseph-alt</a>
+        </div>
+      </div>
+      <div>
+        <div class="form-group"><input type="text" placeholder="Your name"></div>
+        <div class="form-group"><input type="email" placeholder="Email address"></div>
+        <div class="form-group"><input type="text" placeholder="Project type (e.g. Web App, API, Redesign)"></div>
+        <div class="form-group"><textarea placeholder="Tell me about your project…"></textarea></div>
+        <button class="send-btn" onclick="this.textContent='Message Sent! ✦';this.style.background='#3ECFA0'">Send Message</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>Made with <span>♥</span> &amp; a lot of code · allan.joseph · 2025</footer>
+
+<script>
+  // Smooth scroll for nav links
+  document.querySelectorAll('nav a').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+
+  // Animate skill bars on scroll
+  const skillSection = document.getElementById('skills');
+  let animated = false;
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !animated) {
+        animated = true;
+        document.querySelectorAll('.skill-fill').forEach(bar => {
+          bar.style.width = bar.getAttribute('data-width');
+        });
+      }
+    });
+  }, { threshold: 0.2 });
+  observer.observe(skillSection);
+</script>
+
+</body>
+</html>
